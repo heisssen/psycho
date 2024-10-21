@@ -1,0 +1,471 @@
+/* Загальні стилі */
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #fafafa;
+    /* Світлий фон для всієї сторінки */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+p {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Ссилки */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Кнопки */
+.btn-primary {
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border-radius: 0;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Форми */
+.form-control {
+    border: 2px solid #ddd;
+    border-radius: 0;
+    padding: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+/* Зображення */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Контейнери */
+.container {
+    max-width: 1140px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+/* Секції */
+section {
+    padding: 60px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+/* Навігаційна панель */
+.navbar {
+    background-color: #fff;
+    /* Світлий фон */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-weight: 900;
+    /* Жирний шрифт для заголовка */
+    font-size: 2rem;
+    /* Ще більший заголовок */
+    color: #000;
+    /* Чорний текст */
+    text-transform: uppercase;
+    /* Усі літери великі */
+    letter-spacing: 2px;
+    /* Додатковий простір між літерами для виразності */
+}
+
+.navbar-toggler {
+    border: 2px solid #000;
+    /* Чорна рамка для кнопки-гамбургер */
+    padding: 10px;
+    background-color: transparent;
+}
+
+.navbar-toggler-icon {
+    background-color: #000;
+    /* Чорний колір іконки */
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-item {
+    margin-left: 30px;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+    /* Великий шрифт для посилань */
+    font-weight: 700;
+    /* Жирний шрифт */
+    color: #000;
+    /* Чорний текст */
+    text-transform: uppercase;
+    /* Великі літери */
+    position: relative;
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+    border-bottom: 4px solid transparent;
+    /* Груба лінія під текстом */
+}
+
+.nav-link:hover {
+    color: #ff0000;
+    /* Червоний колір при наведенні */
+    border-bottom-color: #ff0000;
+    /* Підкреслення червоною лінією */
+}
+
+.nav-link:active {
+    color: #007bff;
+    /* Синій колір при натисканні */
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    /* Товста лінія під текстом */
+    background-color: #007bff;
+    /* Синя лінія, яка не з'являється одразу */
+    bottom: -4px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1);
+    /* З'являється синя лінія під текстом при наведенні */
+}
+
+/* Форма та кнопки */
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.btn-primary {
+    background-color: #ff0000;
+    /* Червона кнопка для контрасту */
+    border: 4px solid #000;
+    /* Товсті чорні межі */
+    color: #fff;
+    padding: 12px 30px;
+    /* Великі кнопки для бруталізму */
+    font-size: 1.25rem;
+    /* Більший розмір тексту */
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 0;
+    /* Без округлень */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #000;
+    /* Чорний фон при наведенні */
+    color: #fff;
+    transform: scale(1.05);
+    /* Легка анімація збільшення при наведенні */
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-brand {
+        margin-bottom: 10px;
+        font-size: 1.75rem;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-item {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Картки */
+.card {
+    border: 2px solid #ddd;
+    border-radius: 0;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* Легкі тіні для контрасту */
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    /* Встановлення однакової висоти карток */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Hero Секція */
+.hero-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.hero-section h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.hero-section p {
+    color: #6c757d;
+    font-size: 1.125rem;
+}
+
+.hero-section img {
+    max-width: 90%;
+}
+
+/* Секція Про мене */
+.about-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.about-section img {
+    border: 2px solid #ddd;
+}
+
+/* Секція Послуги */
+.services-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.service-box {
+    border: 2px solid #ddd;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Секція Як це працює */
+.process-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.step-box {
+    border: 2px solid #ddd;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    /* Однакова висота карток */
+}
+
+.step-box:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.step-box h3 {
+    font-weight: 700;
+    color: #007bff;
+}
+
+/* Секція Відгуки */
+.testimonials-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.testimonial-box {
+    border: 2px solid #ddd;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: none;
+    /* Забороняємо ефект hover */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000;
+    /* Чорні іконки для кнопок */
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Секція CTA */
+.cta-section {
+    padding: 60px 0;
+    background-color: #fff;
+    color: #333;
+}
+
+.cta-form .form-control {
+    border: 2px solid #ddd;
+    border-radius: 0;
+    padding: 10px;
+}
+
+.cta-form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+/* Футер */
+.footer-section {
+    background-color: #f8f9fa;
+    padding: 30px 0;
+    border-top: 2px solid #ddd;
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #333;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .btn-primary,
+    .btn-outline-primary {
+        padding: 8px 15px;
+        font-size: 0.875rem;
+    }
+}
