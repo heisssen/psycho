@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeaBox - Premium Tea Subscription</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font (Optional - you can add Google Fonts here) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-stone-50/80 backdrop-blur-sm border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-medium">TeaBox</a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#how-it-works" class="text-stone-600 hover:text-stone-900">How it Works</a>
+                    <a href="#collection" class="text-stone-600 hover:text-stone-900">Collection</a>
+                    <a href="#pricing" class="text-stone-600 hover:text-stone-900">Pricing</a>
+                    <a href="#reviews" class="text-stone-600 hover:text-stone-900">Reviews</a>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex items-center space-x-4">
+                    <a href="#login" class="text-stone-600 hover:text-stone-900">Login</a>
+                    <a href="#subscribe"
+                        class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-stone-900 hover:bg-stone-800 transition-colors">
+                        Subscribe Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-16">
+        <!-- Grid overlay -->
+        <div class="absolute inset-0 grid grid-cols-6 gap-4 pointer-events-none opacity-50">
+            <div class="h-full border-l border-stone-200"></div>
+            <div class="h-full border-l border-stone-200"></div>
+            <div class="h-full border-l border-stone-200"></div>
+            <div class="h-full border-l border-stone-200"></div>
+            <div class="h-full border-l border-stone-200"></div>
+            <div class="h-full border-l border-stone-200"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-32">
+            <!-- Top Bar with Monthly Price -->
+            <div class="mb-16 flex justify-end">
+                <div class="inline-flex items-center space-x-2 text-lg text-stone-600">
+                    <span class="font-light">Starting at</span>
+                    <span class="font-medium">$24/month</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Content -->
+                <div class="space-y-8">
+                    <div class="inline-flex items-center space-x-2">
+                        <div class="w-12 h-0.5 bg-stone-400"></div>
+                        <span class="text-stone-600 uppercase tracking-widest text-sm">Premium Tea Collection</span>
+                    </div>
+
+                    <h1 class="text-6xl md:text-7xl font-medium tracking-tight">
+                        Curated Tea
+                        <span class="block mt-2 text-stone-600">Every Month</span>
+                    </h1>
+
+                    <p class="text-xl text-stone-600 font-light max-w-lg">
+                        Discover rare and exceptional teas, carefully selected from artisanal gardens around the world.
+                    </p>
+
+                    <ul class="grid grid-cols-2 gap-4 pt-4">
+                        <li class="flex items-center space-x-2">
+                            <div class="w-1.5 h-1.5 bg-stone-900"></div>
+                            <span class="text-stone-600">Seasonal Selection</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-1.5 h-1.5 bg-stone-900"></div>
+                            <span class="text-stone-600">Tasting Notes</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-1.5 h-1.5 bg-stone-900"></div>
+                            <span class="text-stone-600">Brewing Guide</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-1.5 h-1.5 bg-stone-900"></div>
+                            <span class="text-stone-600">Free Shipping</span>
+                        </li>
+                    </ul>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-8">
+                        <a href="#subscribe"
+                            class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-stone-900 hover:bg-stone-800 transition-colors">
+                            Start Subscription
+                            <svg class="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14m-7-7l7 7-7 7"></path>
+                            </svg>
+                        </a>
+
+                        <a href="#collection"
+                            class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-stone-900 border-2 border-stone-900 hover:bg-stone-100 transition-colors">
+                            View Collection
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual Block -->
+                <div class="relative">
+                    <div class="absolute -top-8 -left-8 w-32 h-32 border-2 border-stone-900"></div>
+
+                    <div class="relative aspect-[4/5] bg-stone-100 overflow-hidden">
+                        <img src="tea-box.avif" alt="Premium Tea Collection"
+                            class="absolute inset-0 w-full h-full object-cover object-center" loading="eager" />
+                    </div>
+
+                    <div class="absolute -bottom-8 -right-8 bg-stone-900 p-6">
+                        <span class="block text-white font-medium">JULY</span>
+                        <span class="block text-stone-400 text-sm">BOX</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured In Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                <div class="text-stone-400">Featured in</div>
+                <img class='fill-black', src="FB.svg" alt="Forbes" class="grayscale opacity-50" />
+                <img src="https://findvectorlogo.com/wp-content/uploads/2018/12/bon-appetit-vector-logo.png" />                
+                <img src="https://findlogovector.com/wp-content/uploads/2020/02/food-and-wine-logo-vector.png" />            
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto text-center mb-16">
+                <h2 class="text-4xl font-medium mb-4">How It Works</h2>
+                <p class="text-lg text-stone-600">Simple steps to start your tea journey</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Step 1 -->
+                <div class="relative">
+                    <div
+                        class="absolute -top-4 -left-4 w-16 h-16 bg-stone-100 flex items-center justify-center text-2xl font-medium">
+                        01
+                    </div>
+                    <div class="pt-16 pb-8">
+                        <h3 class="text-xl font-medium mb-4">Choose Your Plan</h3>
+                        <p class="text-stone-600">Select from our curated subscription options tailored to your tea
+                            preferences.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative">
+                    <div
+                        class="absolute -top-4 -left-4 w-16 h-16 bg-stone-100 flex items-center justify-center text-2xl font-medium">
+                        02
+                    </div>
+                    <div class="pt-16 pb-8">
+                        <h3 class="text-xl font-medium mb-4">Receive Monthly Box</h3>
+                        <p class="text-stone-600">Get a carefully curated selection of premium teas delivered to your
+                            door.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative">
+                    <div
+                        class="absolute -top-4 -left-4 w-16 h-16 bg-stone-100 flex items-center justify-center text-2xl font-medium">
+                        03
+                    </div>
+                    <div class="pt-16 pb-8">
+                        <h3 class="text-xl font-medium mb-4">Enjoy & Discover</h3>
+                        <p class="text-stone-600">Experience new flavors with detailed tasting notes and brewing guides.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Collection -->
+    <section id="collection" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-4xl font-medium mb-4">July Collection</h2>
+                    <p class="text-lg text-stone-600">This month's carefully selected teas</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-stone-600">Updated monthly</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tea Card 1 -->
+                <div class="group relative">
+                    <div class="aspect-[3/4] bg-stone-50 overflow-hidden">
+                        <img src="WT.webp" alt="Silver Needle White Tea"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="pt-4">
+                        <h3 class="text-xl font-medium">Silver Needle White Tea</h3>
+                        <p class="text-stone-600 mt-1">Fujian, China</p>
+                        <p class="mt-2 text-sm text-stone-600">Delicate, sweet, and floral with notes of honey</p>
+                    </div>
+                </div>
+
+                <!-- Tea Card 2 -->
+                <div class="group relative">
+                    <div class="aspect-[3/4] bg-stone-50 overflow-hidden">
+                        <img src="GT.webp" alt="Gyokuro Green Tea"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="pt-4">
+                        <h3 class="text-xl font-medium">Gyokuro Green Tea</h3>
+                        <p class="text-stone-600 mt-1">Uji, Japan</p>
+                        <p class="mt-2 text-sm text-stone-600">Rich umami with sweet, marine notes</p>
+                    </div>
+                </div>
+
+                <!-- Tea Card 3 -->
+                <div class="group relative">
+                    <div class="aspect-[3/4] bg-stone-50 overflow-hidden">
+                        <img src="GJ.webp" alt="Darjeeling First Flush"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <div class="pt-4">
+                        <h3 class="text-xl font-medium">Darjeeling First Flush</h3>
+                        <p class="text-stone-600 mt-1">West Bengal, India</p>
+                        <p class="mt-2 text-sm text-stone-600">Light, floral with subtle muscatel notes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto text-center mb-16">
+                <h2 class="text-4xl font-medium mb-4">Subscription Plans</h2>
+                <p class="text-lg text-stone-600">Choose the perfect tea journey for you</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="relative p-8 bg-white">
+                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-stone-900"></div>
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-medium mb-2">Starter</h3>
+                        <p class="text-stone-600">Perfect for beginning your tea journey</p>
+                    </div>
+                    <div class="mb-8">
+                        <span class="text-4xl font-medium">$24</span>
+                        <span class="text-stone-600">/month</span>
+                    </div>
+                    <ul class="space-y-4 text-stone-600">
+                        <li>2 Curated Teas</li>
+                        <li>Brewing Guides</li>
+                        <li>Tasting Notes</li>
+                        <li>Free Shipping</li>
+                    </ul>
+                    <a href="#subscribe"
+                        class="mt-8 inline-flex items-center justify-center px-6 py-4 bg-stone-900 text-white hover:bg-stone-800 transition-colors">Get
+                        Started</a>
+                </div>
+
+                <!-- Standard Plan -->
+                <div class="relative p-8 bg-white">
+                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-stone-900"></div>
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-medium mb-2">Explorer</h3>
+                        <p class="text-stone-600">Expand your tea knowledge</p>
+                    </div>
+                    <div class="mb-8">
+                        <span class="text-4xl font-medium">$36</span>
+                        <span class="text-stone-600">/month</span>
+                    </div>
+                    <ul class="space-y-4 text-stone-600">
+                        <li>4 Curated Teas</li>
+                        <li>Brewing Guides</li>
+                        <li>Tasting Notes</li>
+                        <li>Free Shipping</li>
+                    </ul>
+                    <a href="#subscribe"
+                        class="mt-8 inline-flex items-center justify-center px-6 py-4 bg-stone-900 text-white hover:bg-stone-800 transition-colors">Get
+                        Started</a>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="relative p-8 bg-white">
+                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-stone-900"></div>
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-medium mb-2">Connoisseur</h3>
+                        <p class="text-stone-600">For the true tea enthusiast</p>
+                    </div>
+                    <div class="mb-8">
+                        <span class="text-4xl font-medium">$50</span>
+                        <span class="text-stone-600">/month</span>
+                    </div>
+                    <ul class="space-y-4 text-stone-600">
+                        <li>6 Curated Teas</li>
+                        <li>Exclusive Selections</li>
+                        <li>Brewing Guides</li>
+                        <li>Tasting Notes</li>
+                        <li>Free Shipping</li>
+                    </ul>
+                    <a href="#subscribe"
+                        class="mt-8 inline-flex items-center justify-center px-6 py-4 bg-stone-900 text-white hover:bg-stone-800 transition-colors">Get
+                        Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-stone-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="text-xl font-medium">TeaBox</h3>
+                    <p class="mt-4 text-stone-400">Premium tea subscription service</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-medium">Links</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#how-it-works" class="text-stone-400 hover:text-white">How It Works</a></li>
+                        <li><a href="#collection" class="text-stone-400 hover:text-white">Collection</a></li>
+                        <li><a href="#pricing" class="text-stone-400 hover:text-white">Pricing</a></li>
+                        <li><a href="#reviews" class="text-stone-400 hover:text-white">Reviews</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-medium">Contact</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="mailto:support@teabox.com"
+                                class="text-stone-400 hover:text-white">support@teabox.com</a></li>
+                        <li><a href="tel:+18001234567" class="text-stone-400 hover:text-white">+1 (800) 123-4567</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-medium">Social</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-stone-400 hover:text-white">Instagram</a></li>
+                        <li><a href="#" class="text-stone-400 hover:text-white">Facebook</a></li>
+                        <li><a href="#" class="text-stone-400 hover:text-white">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
