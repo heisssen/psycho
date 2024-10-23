@@ -16,24 +16,51 @@
         .typing-cursor {
             border-right: 3px solid #16a34a;
         }
+
+        .choice-button {
+            transition: all 0.2s ease;
+        }
+
+        .choice-button:hover {
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
 <body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
     <div class="container mx-auto px-4 min-h-screen flex flex-col items-center justify-center">
         <div class="text-center max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-12 backdrop-blur-sm bg-opacity-90">
+            <!-- Анімований заголовок -->
             <h1 class="text-4xl md:text-6xl font-bold mb-8 tracking-tight text-gray-800">
                 БЕЗКОШТОВНА<br>КОНСУЛЬТАЦІЯ
             </h1>
-            <div class="relative">
+            <div class="relative mb-12">
                 <div class="text-3xl md:text-5xl font-bold text-green-600 h-20 flex justify-center items-center">
                     <span id="typed-text" class="typing-cursor px-4"></span>
+                </div>
+            </div>
+
+            <!-- Секція діалогу -->
+            <div id="chat-container" class="flex flex-col items-center space-y-6">
+                <div id="initial-prompt" class="text-xl text-gray-700">
+                    Оберіть свою ситуацію:
+                </div>
+
+                <!-- Початкова кнопка -->
+                <button id="start-button"
+                    class="choice-button bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg text-lg shadow-md">
+                    Обрати ситуацію ›
+                </button>
+
+                <!-- Контейнер для опцій -->
+                <div id="options-container" class="hidden w-full max-w-md flex flex-col space-y-3">
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Анімація тексту
         const words = ['ПСИХОЛОГА', 'ПСИХОТЕРАПЕВТА', 'НАРКОЛОГА'];
         let wordIndex = 0;
         let charIndex = 0;
@@ -45,30 +72,144 @@
             while (true) {
                 const currentWord = words[wordIndex];
 
-                // Друкуємо слово
                 for (let i = 0; i <= currentWord.length; i++) {
                     typedTextElement.textContent = currentWord.substring(0, i);
                     await new Promise(resolve => setTimeout(resolve, 100));
                 }
 
-                // Чекаємо 5 секунд
                 await new Promise(resolve => setTimeout(resolve, 5000));
 
-                // Стираємо слово
                 for (let i = currentWord.length; i >= 0; i--) {
                     typedTextElement.textContent = currentWord.substring(0, i);
                     await new Promise(resolve => setTimeout(resolve, 50));
                 }
 
-                // Чекаємо секунду перед наступним словом
                 await new Promise(resolve => setTimeout(resolve, 1000));
-
-                // Переходимо до наступного слова
                 wordIndex = (wordIndex + 1) % words.length;
             }
         }
 
-        // Запускаємо анімацію
+        // Структура діалогу
+        const dialogFlow = {
+            start: {
+                options: [
+                    { text: "Тривога та панічні атаки", next: "anxiety" },
+                    { text: "Депресія", next: "depression" },
+                    { text: "Проблеми у відносинах", next: "relationships" },
+                    { text: "Залежність", next: "addiction" },
+                    { text: "Інше", next: "other" }
+                ]
+            },
+            anxiety: {
+                options: [
+                    { text: "Постійне відчуття тривоги", next: "contact" },
+                    { text: "Панічні атаки", next: "contact" },
+                    { text: "Страхи та фобії", next: "contact" },
+                    { text: "Назад", next: "start" }
+                ]
+            },
+            depression: {
+                options: [
+                    { text: "Пригнічений настрій", next: "contact" },
+                    { text: "Втрата інтересу до життя", next: "contact" },
+                    { text: "Проблеми зі сном", next: "contact" },
+                    { text: "Назад", next: "start" }
+                ]
+            },
+            relationships: {
+                options: [
+                    { text: "Конфлікти в сім'ї", next: "contact" },
+                    { text: "Проблеми з партнером", next: "contact" },
+                    { text: "Складнощі у спілкуванні", next: "contact" },
+                    { text: "Назад", next: "start" }
+                ]
+            },
+            addiction: {
+                options: [
+                    { text: "Алкогольна залежність", next: "contact" },
+                    { text: "Наркотична залежність", next: "contact" },
+                    { text: "Ігрова залежність", next: "contact" },
+                    { text: "Назад", next: "start" }
+                ]
+            },
+            other: {
+                options: [
+                    { text: "Проблеми на роботі", next: "contact" },
+                    { text: "Особистісний розвиток", next: "contact" },
+                    { text: "Травматичний досвід", next: "contact" },
+                    { text: "Назад", next: "start" }
+                ]
+            },
+            contact: {
+                options: [
+                    { text: "Записатись на консультацію", next: "final" },
+                    { text: "Назад", next: "start" }
+                ]
+            }
+        };
+
+        // Функція для створення кнопки вибору
+        function createChoiceButton(text, nextState) {
+            const button = document.createElement('button');
+            button.className = 'choice-button w-full bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 px-6 rounded-lg border border-gray-200 shadow-sm text-left transition-all';
+            button.textContent = text;
+            button.onclick = () => showOptions(nextState);
+            return button;
+        }
+
+        // Функція для показу опцій
+        function showOptions(state) {
+            const container = document.getElementById('options-container');
+            const startButton = document.getElementById('start-button');
+            const prompt = document.getElementById('initial-prompt');
+
+            // Очищаємо контейнер
+            container.innerHTML = '';
+
+            if (state === 'final') {
+                // Показуємо фінальне повідомлення
+                prompt.textContent = 'Дякуємо за ваш вибір. Ми зв\'яжемося з вами найближчим часом.';
+                container.style.display = 'none';
+                startButton.style.display = 'none';
+                return;
+            }
+
+            // Оновлюємо текст підказки відповідно до стану
+            switch (state) {
+                case 'anxiety':
+                    prompt.textContent = 'Який тип тривоги вас турбує?';
+                    break;
+                case 'depression':
+                    prompt.textContent = 'Які симптоми вас турбують?';
+                    break;
+                case 'relationships':
+                    prompt.textContent = 'З якими проблемами ви стикаєтесь?';
+                    break;
+                case 'addiction':
+                    prompt.textContent = 'Який тип залежності вас турбує?';
+                    break;
+                case 'other':
+                    prompt.textContent = 'Оберіть категорію проблеми:';
+                    break;
+                case 'contact':
+                    prompt.textContent = 'Бажаєте записатись на консультацію?';
+                    break;
+                default:
+                    prompt.textContent = 'Оберіть свою ситуацію:';
+            }
+
+            // Додаємо нові опції
+            dialogFlow[state].options.forEach(option => {
+                container.appendChild(createChoiceButton(option.text, option.next));
+            });
+
+            // Показуємо контейнер з опціями
+            container.style.display = 'flex';
+            startButton.style.display = 'none';
+        }
+
+        // Ініціалізація
+        document.getElementById('start-button').onclick = () => showOptions('start');
         typeWriter();
     </script>
 </body>
