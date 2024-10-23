@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Вільне Життя | Безкоштовна консультація</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .typing-cursor {
+            border-right: 3px solid #16a34a;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 min-h-screen flex flex-col items-center justify-center">
+        <div class="text-center max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-12 backdrop-blur-sm bg-opacity-90">
+            <h1 class="text-4xl md:text-6xl font-bold mb-8 tracking-tight text-gray-800">
+                БЕЗКОШТОВНА<br>КОНСУЛЬТАЦІЯ
+            </h1>
+            <div class="relative">
+                <div class="text-3xl md:text-5xl font-bold text-green-600 h-20 flex justify-center items-center">
+                    <span id="typed-text" class="typing-cursor px-4"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const words = ['ПСИХОЛОГА', 'ПСИХОТЕРАПЕВТА', 'НАРКОЛОГА'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const typedTextElement = document.getElementById('typed-text');
+
+        async function typeWriter() {
+            while (true) {
+                const currentWord = words[wordIndex];
+
+                // Друкуємо слово
+                for (let i = 0; i <= currentWord.length; i++) {
+                    typedTextElement.textContent = currentWord.substring(0, i);
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                }
+
+                // Чекаємо 5 секунд
+                await new Promise(resolve => setTimeout(resolve, 5000));
+
+                // Стираємо слово
+                for (let i = currentWord.length; i >= 0; i--) {
+                    typedTextElement.textContent = currentWord.substring(0, i);
+                    await new Promise(resolve => setTimeout(resolve, 50));
+                }
+
+                // Чекаємо секунду перед наступним словом
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // Переходимо до наступного слова
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+        }
+
+        // Запускаємо анімацію
+        typeWriter();
+    </script>
+</body>
+
+</html>
